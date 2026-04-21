@@ -1,0 +1,113 @@
+.category-wrapper {
+  background-color: #1a1a1a;
+  min-height: 100vh;
+  color: #ffffff;
+  padding-bottom: 5rem;
+}
+
+
+.display-5 {
+  letter-spacing: -1px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 3rem;
+}
+
+.display-5::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background-color: #ffffff;
+  bottom: -10px;
+  left: 0;
+}
+
+.category-card {
+  background-color: #242424;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  height: 100%;
+}
+
+.category-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.category-card .card-img-top {
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.category-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.category-card .card-body {
+  padding: 1.5rem;
+  background: linear-gradient(to bottom, #242424, #1e1e1e);
+}
+
+.category-card .card-title {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.category-card .card-text {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.btn-outline-light {
+  border-width: 1px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.6rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+/* Subtle background pattern */
+.category-wrapper {
+  background-image: 
+    linear-gradient(rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.95)),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.bg-soft-gray {
+  background-color: transparent;
+}
+
+.fade-in {
+  opacity: 0;
+}
+
+.fade-in.show {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
