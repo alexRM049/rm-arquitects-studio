@@ -17,10 +17,10 @@
         <a class="nav-link" [routerLink]="['/home']" (click)="isMobile ? isCollapsed.set(true) : null">
           Pantalla principal
         </a>
-        <a class="nav-link" routerLink="/acceder" (click)="isMobile ? isCollapsed.set(true) : null">
+        <a class="nav-link" [routerLink]="['/client-form']" (click)="isMobile ? isCollapsed.set(true) : null">
           Contactanos
         </a>
-        <a class="nav-link" routerLink="/acceder" (click)="isMobile ? isCollapsed.set(true) : null">
+        <a class="nav-link" [routerLink]="['/about']" (click)="isMobile ? isCollapsed.set(true) : null">
           ¿Quienes somos?
         </a>
       </div>

@@ -41,7 +41,7 @@ export class CatalogService {
         {
             name: 'Skyline Plaza',
             description: 'Complejo comercial con diseño vanguardista en el corazón de la ciudad.',
-            image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&q=80&w=800',
+            image: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=800',
             path: '/commercial/skyline',
             category: 'commercials'
         },
@@ -58,21 +58,21 @@ export class CatalogService {
         {
             name: 'Eco-Habitat',
             description: 'Vivienda autosuficiente con sistemas de recolección de agua y energía solar.',
-            image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800',
+            image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=800',
             path: '/sustainable/eco-habitat',
             category: 'sustainable'
         },
         {
             name: 'Bosque Urbano',
             description: 'Edificio residencial con jardines verticales y ventilación natural.',
-            image: 'https://images.unsplash.com/photo-1545641203-7d072a14e3b2?auto=format&fit=crop&q=80&w=800',
+            image: 'https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&q=80&w=800',
             path: '/sustainable/bosque-urbano',
             category: 'sustainable'
         },
         {
             name: 'Green Nexus',
             description: 'Desarrollo urbano de impacto cero con materiales reciclados.',
-            image: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&q=80&w=800',
+            image: 'https://images.unsplash.com/photo-1498084393753-b411b2d26b34?auto=format&fit=crop&q=80&w=800',
             path: '/sustainable/green-nexus',
             category: 'sustainable'
         }
