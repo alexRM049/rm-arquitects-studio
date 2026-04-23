@@ -3,4 +3,5 @@ export interface Category {
     description: string;
     image: string;
     path: string;
+    category: string;
 }

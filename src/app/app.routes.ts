@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { Home } from './home/home';
 import { Category } from './category/category';
+import { Catalog } from './category/catalog/catalog';
 
 export const routes: Routes = [
     {   path: 'home', 
@@ -11,6 +12,11 @@ export const routes: Routes = [
         component: Category, 
         title: 'Categorias'
     },
+    {
+        path: 'catalog',
+        component: Catalog,
+        title: 'Catalogos'
+    },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: '**', redirectTo: '/home' }
+    { path: '**', redirectTo: '/home' },
 ];

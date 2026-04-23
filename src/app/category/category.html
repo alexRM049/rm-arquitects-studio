@@ -13,7 +13,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ category.name }}</h5>
             <p class="card-text">{{ category.description }}</p>
-            <a href="#" class="btn btn-outline-light">Ver Proyectos</a>
+            <a (click)="onCategorySelected(category.category)" class="btn btn-outline-light" style="cursor: pointer;">Ver Proyectos</a>
           </div>
         </div>
       </div>

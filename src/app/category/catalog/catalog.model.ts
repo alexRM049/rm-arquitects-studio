@@ -3,4 +3,5 @@ export interface Catalog {
     description: string;
     image: string;
     path: string;
+    category: string;
 }
