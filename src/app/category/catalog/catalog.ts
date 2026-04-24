@@ -1,8 +1,7 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CatalogService } from '../../services/catalog.service';
-import { SharedService } from '../../services/shared.service';
 import { Catalog as CatalogModel } from './catalog.model';
-import {RouterLink, Router} from '@angular/router'
 
 @Component({
   selector: 'app-catalog',
@@ -12,18 +11,27 @@ import {RouterLink, Router} from '@angular/router'
 })
 export class Catalog implements OnInit {
   private router = inject(Router);
+  private activatedRoute = inject(ActivatedRoute);
   private catalogService = inject(CatalogService);
-  sharedService = inject(SharedService);
-  
-  residencials: CatalogModel[] = this.catalogService.getResidencials();
-  commercials: CatalogModel[] = this.catalogService.getCommercials();
-  sustainable: CatalogModel[] = this.catalogService.getSustainable();
+
+  categoryTitle = '';
+  items: CatalogModel[] = [];
+  categoryNotFound = false;
+
+  ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe(params => {
+      const category = params.get('category') || '';
+      this.loadCatalog(category);
+    });
+  }
+
+  private loadCatalog(category: string) {
+    this.items = this.catalogService.getByCategory(category);
+    this.categoryTitle = this.catalogService.getCategoryTitle(category);
+    this.categoryNotFound = !this.categoryTitle;
+  }
 
   onBackToCategories() {
     this.router.navigate(['/category']);
-  }
-  
-  ngOnInit(): void {
-    // We can use the signal directly in the template
   }
 }

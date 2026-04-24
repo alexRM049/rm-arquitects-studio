@@ -1,9 +1,16 @@
-<nav class="navbar navbar-expand-lg bg-black sticky-top" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-black sticky-top" data-bs-theme="dark" aria-label="Navegación principal">
   <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home" (click)="closeMobileMenu()">
+      <span class="brand-text">RM</span>
+      <span class="brand-sub">Architects</span>
+    </a>
+
     <button
       class="navbar-toggler"
       type="button"
       (click)="toggleMenu()"
+      aria-label="Abrir menú de navegación"
+      [attr.aria-expanded]="!isCollapsed()"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,15 +20,22 @@
       [class.show]="!isCollapsed() || !isMobile"
       id="navbarNavAltMarkup"
     >
-      <div class="navbar-nav">
-        <a class="nav-link" [routerLink]="['/home']" (click)="isMobile ? isCollapsed.set(true) : null">
-          Pantalla principal
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">
+          Inicio
         </a>
-        <a class="nav-link" [routerLink]="['/client-form']" (click)="isMobile ? isCollapsed.set(true) : null">
-          Contactanos
+        <a class="nav-link" routerLink="/category" routerLinkActive="active"
+           (click)="closeMobileMenu()">
+          Proyectos
         </a>
-        <a class="nav-link" [routerLink]="['/about']" (click)="isMobile ? isCollapsed.set(true) : null">
-          ¿Quienes somos?
+        <a class="nav-link" routerLink="/client-form" routerLinkActive="active"
+           (click)="closeMobileMenu()">
+          Contáctanos
+        </a>
+        <a class="nav-link" routerLink="/about" routerLinkActive="active"
+           (click)="closeMobileMenu()">
+          ¿Quiénes Somos?
         </a>
       </div>
     </div>

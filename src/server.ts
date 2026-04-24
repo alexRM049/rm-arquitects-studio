@@ -5,6 +5,7 @@ import {
   writeResponseToNodeResponse,
 } from '@angular/ssr/node';
 import express from 'express';
+import helmet from 'helmet';
 import { join } from 'node:path';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
@@ -13,16 +14,22 @@ const app = express();
 const angularApp = new AngularNodeAppEngine();
 
 /**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/{*splat}', (req, res) => {
- *   // Handle API request
- * });
- * ```
+ * Security headers — relaxed CSP to allow Unsplash images and Google Fonts.
  */
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "'unsafe-inline'"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
+        fontSrc: ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
+        imgSrc: ["'self'", "data:", "https://images.unsplash.com", "https://cdn.sanity.io"],
+        connectSrc: ["'self'", "https://*.sanity.io"],
+      },
+    },
+  })
+);
 
 /**
  * Serve static files from /browser
@@ -49,7 +56,6 @@ app.use((req, res, next) => {
 
 /**
  * Start the server if this module is the main entry point, or it is ran via PM2.
- * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
  */
 if (isMainModule(import.meta.url) || process.env['pm_id']) {
   const port = process.env['PORT'] || 4000;
@@ -57,7 +63,6 @@ if (isMainModule(import.meta.url) || process.env['pm_id']) {
     if (error) {
       throw error;
     }
-
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }

@@ -2,33 +2,38 @@ import { Routes } from '@angular/router';
 import { Home } from './home/home';
 import { Category } from './category/category';
 import { Catalog } from './category/catalog/catalog';
-import { CilentForm } from './cilent-form/cilent-form';
+import { ClientForm } from './client-form/client-form';
 import { About } from './about/about';
+import { NotFound } from './not-found/not-found';
 
 export const routes: Routes = [
-    {   path: 'home', 
-        component: Home, 
-        title: 'Pantalla Principal'
+    {   path: 'home',
+        component: Home,
+        title: 'RM Architects Studio — Inicio'
     },
-    {   path: 'category', 
-        component: Category, 
-        title: 'Categorias'
+    {   path: 'category',
+        component: Category,
+        title: 'RM Architects — Categorías'
     },
     {
-        path: 'catalog',
+        path: 'catalog/:category',
         component: Catalog,
-        title: 'Catalogos'
+        title: 'RM Architects — Catálogo'
     },
     {
         path: 'client-form',
-        component: CilentForm,
-        title: 'Contactanos'
+        component: ClientForm,
+        title: 'RM Architects — Contáctanos'
     },
     {
         path: 'about',
         component: About,
-        title: '¿Quienes somos?'
+        title: 'RM Architects — ¿Quiénes Somos?'
     },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: '**', redirectTo: '/home' }
+    {
+        path: '**',
+        component: NotFound,
+        title: 'RM Architects — Página No Encontrada'
+    }
 ];

@@ -1,0 +1,26 @@
+.not-found-wrapper {
+  background-color: #1a1a1a;
+  min-height: 100vh;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-code {
+  font-size: 10rem;
+  font-weight: 800;
+  letter-spacing: -5px;
+  line-height: 1;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.3) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.5px;
+}

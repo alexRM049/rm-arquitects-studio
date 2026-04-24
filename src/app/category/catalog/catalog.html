@@ -1,60 +1,30 @@
-<div class="catalog-wrapper">
+<section class="catalog-wrapper page-wrapper" style="padding-top: 5rem; padding-bottom: 5rem;">
   <div class="container fade-in">
     <div class="d-flex justify-content-end mb-4">
       <button (click)="onBackToCategories()" class="btn btn-outline-light d-inline-flex align-items-center" type="button">
-        <i class="bi bi-arrow-left me-2"></i> Volver a Categorias
+        <i class="bi bi-arrow-left me-2"></i> Volver a Categorías
       </button>
     </div>
-    @if (sharedService.getCategoryName() === 'residencials') {
-      <h2 class="catalog-title">Proyectos Residenciales</h2>
-      <div class="row g-4">
-        @for (item of residencials; track item.name) {
-          <div class="col-md-4">
-            <div class="card">
-              <img [src]="item.image" class="card-img-top" [alt]="item.name">
-              <div class="card-body">
-                <h5 class="card-title">{{item.name}}</h5>
-                <p class="card-text">{{item.description}}</p>
-              </div>
-            </div>
-          </div>
-        }
-      </div>
-    } @else if (sharedService.getCategoryName() === 'commercials') {
-      <h2 class="catalog-title">Proyectos Comerciales</h2>
-      <div class="row g-4">
-        @for (item of commercials; track item.name) {
-          <div class="col-md-4">
-            <div class="card">
-              <img [src]="item.image" class="card-img-top" [alt]="item.name">
-              <div class="card-body">
-                <h5 class="card-title">{{item.name}}</h5>
-                <p class="card-text">{{item.description}}</p>
-              </div>
-            </div>
-          </div>
-        }
-      </div>
-    } @else if (sharedService.getCategoryName() === 'sustainable') {
-      <h2 class="catalog-title">Proyectos Sostenibles</h2>
-      <div class="row g-4">
-        @for (item of sustainable; track item.name) {
-          <div class="col-md-4">
-            <div class="card">
-              <img [src]="item.image" class="card-img-top" [alt]="item.name">
-              <div class="card-body">
-                <h5 class="card-title">{{item.name}}</h5>
-                <p class="card-text">{{item.description}}</p>
-              </div>
-            </div>
-          </div>
-        }
+    @if (categoryNotFound) {
+      <div class="text-center py-5">
+        <h3 class="section-title">Categoría no encontrada</h3>
+        <p class="text-secondary mt-4">Vuelve a las categorías para explorar nuestros proyectos.</p>
       </div>
     } @else {
-      <div class="text-center py-5">
-        <h3 class="catalog-title">Selecciona una categoría</h3>
+      <h2 class="catalog-title section-title">{{ categoryTitle }}</h2>
+      <div class="row g-4">
+        @for (item of items; track item.name) {
+          <div class="col-md-4">
+            <article class="card">
+              <img [src]="item.image" class="card-img-top" [alt]="item.name" loading="lazy">
+              <div class="card-body">
+                <h5 class="card-title">{{ item.name }}</h5>
+                <p class="card-text">{{ item.description }}</p>
+              </div>
+            </article>
+          </div>
+        }
       </div>
     }
   </div>
-</div>
-
+</section>

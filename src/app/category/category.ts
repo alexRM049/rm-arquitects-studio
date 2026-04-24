@@ -1,44 +1,25 @@
 import { Component, inject, signal } from '@angular/core';
-import { Header } from '../header/header';
 import { CategoryService } from '../services/category.service';
-import { Footer } from "../footer/footer";
-import { SharedService } from '../services/shared.service';
-import {Router, RouterLink} from '@angular/router'
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-category',
-  imports: [Header, Footer, RouterLink,],
+  imports: [RouterLink],
   templateUrl: './category.html',
   styleUrl: './category.css',
 })
 export class Category {
 
-  isShown = signal(false)
-  sharedService = inject(SharedService);
+  isShown = signal(false);
   private categoryService = inject(CategoryService);
   private router = inject(Router);
   categories = this.categoryService.getCategories();
-  
-  
 
   onCategorySelected(category: string) {
-    this.sharedService.categorySelected(category);
-    this.sharedService.selectCategoryName(category); // Using the same key for filtering
-    this.router.navigate(['/catalog']);
-    console.log('Category selected:', category);
+    this.router.navigate(['/catalog', category]);
   }
-
-
 
   ngOnInit(): void {
-  
-      this.toggle();
-    
+    this.isShown.set(true);
   }
-toggle() {
-    this.isShown.update((isShown) => !isShown);
-  }
-
-
- 
 }

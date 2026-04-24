@@ -1,13 +1,4 @@
-.about-wrapper {
-  background-color: #1a1a1a;
-  background-image: 
-    linear-gradient(rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.95)),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  min-height: 100vh;
-  color: #ffffff;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
-}
+/* About-specific styles (wrapper provided by page-wrapper in template) */
 
 .about-image-container {
   position: relative;
@@ -105,9 +96,7 @@
   font-weight: 600;
 }
 
-.fade-in {
-  animation: fadeIn 1s ease-out forwards;
-}
+/* fade-in provided by global styles.css */
 
 /* Founders Section Styling */
 .founder-card {
@@ -165,16 +154,7 @@
   margin: 0;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* fadeIn keyframes provided by global styles.css */
 
 @media (max-width: 991px) {
   .about-title {

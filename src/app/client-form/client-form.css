@@ -1,6 +1,6 @@
 .contact-wrapper {
   background-color: #1a1a1a;
-  background-image: 
+  background-image:
     linear-gradient(rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.95)),
     url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   min-height: 100vh;
@@ -41,7 +41,7 @@
   font-size: 1.1rem;
 }
 
-/* Floating Labels Styling */
+/* Floating Labels */
 .form-floating > .form-control {
   background-color: #1a1a1a;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -57,6 +57,10 @@
   color: #ffffff;
 }
 
+.form-floating > .form-control.is-invalid {
+  border-color: #dc3545;
+}
+
 .form-floating > label {
   color: rgba(255, 255, 255, 0.5);
 }
@@ -67,10 +71,16 @@
   opacity: 0.8;
 }
 
-/* Button Styling - Synchronized with Catalog */
+.invalid-feedback {
+  color: #f87171;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+/* Button */
 .btn-outline-light {
-  border: 1px solid #ffffff !important;
-  color: #ffffff !important;
+  border: 1px solid #ffffff;
+  color: #ffffff;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -78,34 +88,34 @@
   border-radius: 4px;
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   font-weight: 500;
-  background: transparent !important;
+  background: transparent;
 }
 
 .btn-outline-light:hover {
-  background-color: #ffffff !important;
-  color: #1a1a1a !important;
-  transform: translateX(5px);
+  background-color: #ffffff;
+  color: #1a1a1a;
+  transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.btn-outline-light:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Success State */
+.success-state {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.success-icon {
+  font-size: 4rem;
+  color: #4ade80;
 }
 
 .bi-send {
   font-size: 1.1rem;
-}
-
-/* Animations */
-.fade-in {
-  animation: fadeIn 1s ease-out forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 @media (max-width: 768px) {

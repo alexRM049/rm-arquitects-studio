@@ -1,21 +1,17 @@
 import { Component, inject } from '@angular/core';
-import { Header } from '../header/header';
-import { RouterLink, Router } from '@angular/router';
-import { Footer } from '../footer/footer';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [Header, RouterLink, Footer],
+  imports: [RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export class Home {
 
-  router = inject(Router)
+  router = inject(Router);
 
   routerToCategory() {
-    this.router.navigate(['/category'])
-  
-}
-
+    this.router.navigate(['/category']);
+  }
 }

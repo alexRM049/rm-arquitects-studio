@@ -11,14 +11,14 @@ export class CategoryService {
             description: 'Casas de lujo a medida y espacios modernos diseñados para el confort y la elegancia.',
             image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800',
             path: '/residential',
-            category: 'residencials'
+            category: 'residential'
         },
         {
             name: 'Comercial',
             description: 'Edificios de oficinas innovadores y espacios comerciales que inspiran productividad y compromiso.',
             image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800',
             path: '/commercial',
-            category: 'commercials'
+            category: 'commercial'
         },
         {
             name: 'Sostenible',
