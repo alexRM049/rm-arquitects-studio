@@ -49,6 +49,24 @@
                 }
               </div>
 
+              <!-- Teléfono -->
+              <div class="form-floating mb-4">
+                <input type="tel" class="form-control" id="number" placeholder="Teléfono"
+                       formControlName="number" [class.is-invalid]="number?.invalid && number?.touched">
+                <label for="number">Teléfono</label>
+                @if (number?.touched && number?.errors) {
+                  <div class="invalid-feedback">
+                    @if (number?.errors?.['required']) {
+                      El número de teléfono es obligatorio.
+                    } @else if (number?.errors?.['pattern']) {
+                      Ingresa solo números.
+                    } @else if (number?.errors?.['minlength']) {
+                      El número debe tener al menos 10 dígitos.
+                    }
+                  </div>
+                }
+              </div>
+
               <div class="form-floating mb-4">
                 <textarea class="form-control" id="message" placeholder="¿Qué necesitas?"
                           style="height: 150px" formControlName="message"

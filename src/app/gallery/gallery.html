@@ -1,0 +1,90 @@
+<section class="gallery-page-wrapper page-wrapper fade-in" *ngIf="project() as p">
+  <div class="container-fluid px-4 py-5">
+    
+    <div class="row g-4 content-row">
+      
+      <!-- Left Column: Description and Location -->
+      <div class="col-lg-4 d-flex flex-column gap-4 side-column">
+        
+        <!-- Description Card -->
+        <article class="info-card description-card">
+          <h2 class="card-subtitle">Sobre el Proyecto</h2>
+          <div class="description-content">
+            <p>{{ p.description }}</p>
+          </div>
+        </article>
+
+        <!-- Location/Map Card -->
+        <article class="info-card location-card">
+          <h2 class="card-subtitle">Ubicación</h2>
+          <div class="location-details mb-3">
+            <p><i class="bi bi-geo-alt me-2"></i> {{ p.location }}</p>
+          </div>
+          <div id="map" class="map-container"></div>
+        </article>
+        
+      </div>
+
+      <!-- Right Column: Big Gallery -->
+      <div class="col-lg-8 main-column">
+        <div class="gallery-container info-card">
+          
+          <div class="main-image-wrapper">
+            <img [src]="getImageUrl(p.gallery[currentImageIndex()])" 
+                 [alt]="p.title + ' Gallery Image ' + (currentImageIndex() + 1)"
+                 class="main-gallery-image">
+            
+            <!-- Gallery Navigation Overlay -->
+            <div class="gallery-controls" *ngIf="p.gallery?.length > 1">
+              <button (click)="prevImage()" class="control-btn prev" aria-label="Imagen anterior">
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <button (click)="nextImage()" class="control-btn next" aria-label="Siguiente imagen">
+                <i class="bi bi-chevron-right"></i>
+              </button>
+            </div>
+
+            <!-- Counter Overlay -->
+            <div class="gallery-counter" *ngIf="p.gallery?.length > 1">
+              {{ currentImageIndex() + 1 }} / {{ p.gallery.length }}
+            </div>
+          </div>
+
+          <!-- Thumbnails (Optional but nice for premium feel) -->
+          <div class="thumbnail-strip mt-3" *ngIf="p.gallery?.length > 1">
+            <div class="thumb-container" 
+                 *ngFor="let img of p.gallery; let i = index"
+                 [class.active]="i === currentImageIndex()"
+                 (click)="currentImageIndex.set(i)">
+              <img [src]="getImageUrl(img)" alt="Thumbnail" class="thumb-img">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom: Project Title -->
+    <div class="row mt-5">
+      <div class="col-12 text-center">
+        <h1 class="project-title section-title section-title-center">{{ p.title }}</h1>
+      </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="back-nav mt-4 text-center">
+      <a routerLink="/category" class="btn btn-outline-light btn-sm">
+        <i class="bi bi-arrow-left me-2"></i> Volver a Categorías
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Loading State -->
+<div class="loading-wrapper" *ngIf="!project()">
+  <div class="spinner-border text-light" role="status">
+    <span class="visually-hidden">Cargando...</span>
+  </div>
+</div>

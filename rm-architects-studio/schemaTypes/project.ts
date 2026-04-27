@@ -1,6 +1,5 @@
 import {defineField, defineType} from 'sanity'
 
-// This 'export' keyword is what fixes the error in index.ts!
 export const projectType = defineType({
   name: 'project',
   title: 'Architectural Project',
@@ -19,6 +18,23 @@ export const projectType = defineType({
       options: { source: 'title', maxLength: 96 },
     }),
     defineField({
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Residencial', value: 'residencial' },
+          { title: 'Comercial', value: 'comercial' },
+          { title: 'Oficinas', value: 'oficinas' },
+          { title: 'Uso Mixto', value: 'uso-mixto' },
+          { title: 'Hospitalidad', value: 'hospitalidad' },
+          { title: 'Diseño Interior', value: 'diseno-interior' },
+          { title: 'En Construccion', value: 'en-construccion' },
+        ],
+      },
+      description: 'Select the category of the project'
+    }),
+    defineField({
       name: 'mainImage',
       title: 'Main Image',
       type: 'image',
@@ -34,7 +50,6 @@ export const projectType = defineType({
       title: 'Description',
       type: 'text',
     }),
-    // rm-architects-studio/schemaTypes/project.ts
     defineField({
       name: 'locationCoords',
       title: 'Project Coordinates',
@@ -46,24 +61,24 @@ export const projectType = defineType({
       title: 'Project Gallery',
       type: 'array',
       of: [
-    {
-      type: 'image',
-      options: {
-        hotspot: true // Allows your brother to crop each gallery image perfectly
-      },
-      fields: [
         {
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative Text',
-          description: 'Important for SEO and accessibility.'
+          type: 'image',
+          options: {
+            hotspot: true
+          },
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alternative Text',
+              description: 'Important for SEO and accessibility.'
+            }
+          ]
         }
-      ]
-    }
-  ],
-  options: {
-    layout: 'grid' // This makes the images appear as a nice grid in the dashboard
-  }
-})
+      ],
+      options: {
+        layout: 'grid'
+      }
+    })
   ],
 })

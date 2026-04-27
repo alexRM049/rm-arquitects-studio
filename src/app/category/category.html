@@ -3,7 +3,7 @@
     <h1 class="display-5 fw-bold mb-5 section-title">Categorías</h1>
     <div class="fade-in" [class.show]="isShown()">
       <div class="row g-4">
-        @for (category of categories; track $index) {
+        @for (category of categorysignal(); track $index) {
           <div class="col-md-4">
             <article class="card category-card">
               <img [src]="category.image" class="card-img-top" [alt]="'Arquitectura ' + category.name" loading="lazy">

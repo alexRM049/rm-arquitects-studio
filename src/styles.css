@@ -3,6 +3,8 @@
    Global Design System
    =========================== */
 
+@import "leaflet/dist/leaflet.css";
+
 /* --- Shared Entry Animation --- */
 .fade-in {
   animation: fadeIn 1s ease-out forwards;
@@ -46,6 +48,16 @@
   background-color: #ffffff;
   bottom: -15px;
   left: 0;
+}
+
+.section-title-center {
+  text-align: center;
+  display: block !important;
+}
+
+.section-title-center::after {
+  left: 50% !important;
+  transform: translateX(-50%);
 }
 
 /* --- Focus Styles for Keyboard Navigation --- */

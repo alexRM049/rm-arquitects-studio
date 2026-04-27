@@ -14,7 +14,9 @@ export class Category {
   private categoryService = inject(CategoryService);
   private router = inject(Router);
   categories = this.categoryService.getCategories();
-
+  loadCategories = this.categoryService.loadCategories();
+categorysignal = this.categoryService.categoriesSignal;
+  
   onCategorySelected(category: string) {
     this.router.navigate(['/catalog', category]);
   }
@@ -22,4 +24,5 @@ export class Category {
   ngOnInit(): void {
     this.isShown.set(true);
   }
+
 }

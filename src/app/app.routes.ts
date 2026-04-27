@@ -30,6 +30,11 @@ export const routes: Routes = [
         component: About,
         title: 'RM Architects — ¿Quiénes Somos?'
     },
+    {
+        path: 'gallery/:slug',
+        loadComponent: () => import('./gallery/gallery').then(m => m.Gallery),
+        title: 'RM Architects — Galería de Proyecto'
+    },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     {
         path: '**',
