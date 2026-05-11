@@ -1,4 +1,4 @@
-export interface Category {
+export interface CategoryModel {
     name: string;
     description: string;
     image: string;

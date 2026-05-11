@@ -1,12 +1,12 @@
 import { inject, Injectable, signal } from "@angular/core";
-import { Category } from "../category/category.model";
+import { CategoryModel   } from "../category/category.model";
 import {SanityService} from "./sanity.service";
 
 @Injectable({
     providedIn: 'root'
 })
 export class CategoryService {
-    private categories: Category[] = [
+    private categories: CategoryModel[] = [
         {
             name: 'Residencial',
             description: 'Casas de lujo a medida y espacios modernos diseñados para el confort y la elegancia.',
@@ -58,18 +58,18 @@ export class CategoryService {
         }
     ];
 
-    categoriesSignal = signal<Category[]>(this.categories);
+    categoriesSignal = signal<CategoryModel[]>(this.categories);
     private sanityService = inject(SanityService);
 
     getCategories() {
         return this.categoriesSignal;
     }
 
-    getCategoryByName(name: string): Category | null {
+    getCategoryByName(name: string): CategoryModel | null {
         return this.categoriesSignal().find(category => category.name === name) || null;
     }
     
-    getCategoryBySlug(slug: string): Category | null {
+    getCategoryBySlug(slug: string): CategoryModel | null {
         return this.categoriesSignal().find(category => category.category === slug) || null;
     }
 

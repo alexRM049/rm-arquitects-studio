@@ -5,6 +5,7 @@ import { Catalog } from './category/catalog/catalog';
 import { ClientForm } from './client-form/client-form';
 import { About } from './about/about';
 import { NotFound } from './not-found/not-found';
+import { Gallery } from './gallery/gallery';
 
 export const routes: Routes = [
     {   path: 'home',
@@ -40,5 +41,10 @@ export const routes: Routes = [
         path: '**',
         component: NotFound,
         title: 'RM Architects — Página No Encontrada'
+    },
+    {
+        path: 'gallery/:slug',
+        component: Gallery,
+        title: 'RM Architects — Galería de Proyecto'
     }
 ];

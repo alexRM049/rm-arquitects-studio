@@ -1,19 +1,27 @@
 <section class="category-wrapper">
   <div class="container py-5">
-    <h1 class="display-5 fw-bold mb-5 section-title">Categorías</h1>
+    <h1 class="display-5 fw-bold mb-5 section-title">Nuestros Trabajos</h1>
     <div class="fade-in" [class.show]="isShown()">
       <div class="row g-4">
-        @for (category of categorysignal(); track $index) {
-          <div class="col-md-4">
-            <article class="card category-card">
-              <img [src]="category.image" class="card-img-top" [alt]="'Arquitectura ' + category.name" loading="lazy">
-              <div class="card-body">
-                <h5 class="card-title">{{ category.name }}</h5>
-                <p class="card-text">{{ category.description }}</p>
-                <a (click)="onCategorySelected(category.category)" class="btn btn-outline-light" style="cursor: pointer;">Ver Proyectos</a>
-              </div>
-            </article>
+          @if(categorysignal().length > 0){
+          <div class="col-12 d-flex justify-content-center mb-5">
+            <select class="category-select" [value]="chosenCategory()" (change)="onCategoryChanged($event)">
+              @for (category of typesOfCategory(); track category.id) {
+                
+                <option [value]="category.value">{{ category.name }}</option>
+                
+              }
+            </select>
           </div>
+          
+          <!-- 
+            The Catalog component is embedded here. 
+            It automatically re-fetches projects whenever the [category] input changes.
+          -->
+          <div class="col-12 fade-in" [class.show]="isShown()">
+            <app-catalog [category]="chosenCategory()"></app-catalog>
+          </div>
+          
         }
       </div>
     </div>

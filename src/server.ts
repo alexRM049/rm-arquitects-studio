@@ -21,11 +21,11 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "'unsafe-inline'"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://js.emailjs.com"],
         styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
         fontSrc: ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
         imgSrc: ["'self'", "data:", "https://images.unsplash.com", "https://cdn.sanity.io"],
-        connectSrc: ["'self'", "https://*.sanity.io"],
+        connectSrc: ["'self'", "ws://localhost:*", "ws://127.0.0.1:*", "wss://localhost:*", "wss://127.0.0.1:*", "https://*.sanity.io", "https://*.api.sanity.io", "https://api.emailjs.com"],
       },
     },
   })
